@@ -147,12 +147,13 @@ let filterTodos = function(filter)  {
 
 $(document).ready(function () {
 
-  $(document).on('click', '.todo-item', function(){
+  $(document).on('click', '.todo-item', function(event){
     updateTaskStatus($(this))
 
   })
 
-  $(document).on('click', '.btn.remove',function(){
+  $(document).on('click', '.btn.remove',function(event){
+    event.stopPropagation();
     deleteTask($(this).closest('li'))
   })
 
